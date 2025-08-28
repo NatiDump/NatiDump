@@ -44,3 +44,17 @@ Add a subtle, repeatable leaf-vein background similar to patisserie branding.
 - `demo/leaf-vein-demo.html`: preview with swatches
 
 Open the demo file in a browser to see and tweak sizes/colors.
+
+## Using Vuetify in this Nuxt setup
+
+1) Install dependencies:
+
+```bash
+npm i vuetify @mdi/font
+```
+
+2) Create `plugins/vuetify.ts` (already added here). Nuxt will auto-load it.
+
+3) Use Vuetify components in your pages (see `pages/CleanHome.vue`).
+
+4) If icons don’t render, ensure `@mdi/font` is installed (step 1) and the CSS import remains in the plugin file.

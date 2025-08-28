@@ -40,39 +40,52 @@ function toggleUserContent() {
     <Headers @open-search="showSearchModal = true" @open-user="toggleUserContent" />
     <Nav />
 
-    <div class="user-container">
-      <div v-if="showUserOptions" class="dropdown-content">
-        <button class="dropdown-item" type="button" aria-label="Saved recipes" />
-        <button class="dropdown-item" type="button" aria-label="Log out" />
-      </div>
-    </div>
+    <v-container fluid class="py-0">
+      <v-menu v-model="showUserOptions" location="bottom end" :close-on-content-click="true">
+        <template #activator="{ props }">
+          <div class="user-container">
+            <div v-bind="props" />
+          </div>
+        </template>
+        <v-list density="comfortable">
+          <v-list-item min-height="36" title="Saved recipes" />
+          <v-list-item min-height="36" title="Log out" />
+        </v-list>
+      </v-menu>
 
-    <main class="main">
-      <section class="hero bg-leaf-vein">
+      <v-sheet class="hero bg-leaf-vein" rounded="0" elevation="0">
         <div class="hero-inner">
           <Explorebutton />
         </div>
-      </section>
+      </v-sheet>
 
-      <section class="content-block">
-        <div class="card" />
-        <div class="card" />
-        <div class="card" />
-      </section>
-    </main>
+      <v-container class="py-6">
+        <v-row dense>
+          <v-col cols="12" sm="6" md="4" v-for="n in 3" :key="n">
+            <v-card rounded="lg" elevation="1" min-height="140" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-container>
 
-    <div v-if="showSearchModal" class="modal" @click.self="closeSearchModal">
-      <div class="modal-content">
-        <input
-          v-model="search"
-          type="text"
-          @keydown.enter="closeSearchModal"
-          aria-label="Search recipes"
-          class="input"
-        />
-        <button @click="closeSearchModal" type="button" aria-label="Close" class="btn" />
-      </div>
-    </div>
+    <v-dialog v-model="showSearchModal" width="420">
+      <v-card rounded="lg">
+        <v-card-text>
+          <v-text-field
+            v-model="search"
+            variant="outlined"
+            density="comfortable"
+            clearable
+            hide-details
+            placeholder="Search"
+            @keydown.enter="closeSearchModal"
+          />
+        </v-card-text>
+        <v-card-actions class="justify-end">
+          <v-btn color="primary" variant="flat" @click="closeSearchModal">Close</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
   
 </template>
