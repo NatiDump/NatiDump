@@ -1,0 +1,15 @@
+.bg-leaf-vein {
+  /* Customize these to taste */
+  --leaf-vein-size: 160px;
+  --leaf-vein-bg: #fffdf7;
+
+  background-color: var(--leaf-vein-bg);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'><g stroke='%237A8C5C' stroke-opacity='0.18' stroke-width='1.1' stroke-linecap='round'><path d='M20 60 C 60 30, 140 30, 180 60'/><path d='M20 100 C 60 70, 140 70, 180 100'/><path d='M20 140 C 60 110, 140 110, 180 140'/><path d='M40 20 C 70 60, 70 140, 40 180'/><path d='M100 20 C 130 60, 130 140, 100 180'/><path d='M160 20 C 190 60, 190 140, 160 180'/><g stroke-opacity='0.12'><path d='M10 30 C 60 50, 140 50, 190 30'/><path d='M10 170 C 60 150, 140 150, 190 170'/><path d='M30 10 C 50 60, 50 140, 30 190'/><path d='M170 10 C 150 60, 150 140, 170 190'/></g></g></svg>");
+  background-repeat: repeat;
+  background-size: var(--leaf-vein-size);
+}
+
+/* Optional helper for full-page preview */
+.full-viewport {
+  min-height: 100vh;
+}
